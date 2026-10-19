@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frankenstein Writing Mastery: 4-Week Interactive Workbook</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #8b0000;
+            --accent-color: #f4f6f7;
+            --text-color: #333333;
+            --border-color: #dcdde1;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #eef2f3;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 2.2rem;
+        }
+        header p {
+            margin: 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+        .tab-btn {
+            background: var(--accent-color);
+            border: 1px solid var(--border-color);
+            padding: 0.6rem 1.2rem;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: 600;
+            color: var(--primary-color);
+            transition: all 0.2s ease;
+        }
+        .tab-btn:hover, .tab-btn.active {
+            background: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+        }
+        .session-content {
+            display: none;
+        }
+        .session-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.4rem;
+            margin-top: 0;
+        }
+        h3 {
+            color: var(--secondary-color);
+            margin-top: 1.5rem;
+        }
+        .exercise-box {
+            background: #fafbfc;
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.2rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        textarea {
+            width: 100%;
+            height: 90px;
+            padding: 0.6rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            font-family: inherit;
+            resize: vertical;
+        }
+        button.check-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+        button.check-btn:hover {
+            background: #1a252f;
+        }
+        .answer-reveal {
+            display: none;
+            margin-top: 0.8rem;
+            padding: 0.8rem;
+            background: #e8f8f5;
+            border-left: 4px solid #27ae60;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+        .rationale {
+            background: #fdfefe;
+            border: 1px dashed #bdc3c7;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border-radius: 4px;
+        }
+        .rationale h4 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1rem;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Frankenstein Writing Mastery Workbook</h1>
+    <p>Interactive 4-Week Skill-Building Guide for 11th Grade English</p>
+</header>
+
+<div class="container">
+    <!-- Navigation Tabs for 16 Sessions -->
+    <div class="nav-tabs" id="sessionTabs">
+        <!-- Week 1 -->
+        <button class="tab-btn active" onclick="switchSession(1)">Session 1</button>
+        <button class="tab-btn" onclick="switchSession(2)">Session 2</button>
+        <button class="tab-btn" onclick="switchSession(3)">Session 3</button>
+        <button class="tab-btn" onclick="switchSession(4)">Session 4</button>
+        <!-- Week 2 -->
+        <button class="tab-btn" onclick="switchSession(5)">Session 5</button>
+        <button class="tab-btn" onclick="switchSession(6)">Session 6</button>
+        <button class="tab-btn" onclick="switchSession(7)">Session 7</button>
+        <button class="tab-btn" onclick="switchSession(8)">Session 8</button>
+        <!-- Week 3 -->
+        <button class="tab-btn" onclick="switchSession(9)">Session 9</button>
+        <button class="tab-btn" onclick="switchSession(10)">Session 10</button>
+        <button class="tab-btn" onclick="switchSession(11)">Session 11</button>
+        <button class="tab-btn" onclick="switchSession(12)">Session 12</button>
+        <!-- Week 4 -->
+        <button class="tab-btn" onclick="switchSession(13)">Session 13</button>
+        <button class="tab-btn" onclick="switchSession(14)">Session 14</button>
+        <button class="tab-btn" onclick="switchSession(15)">Session 15</button>
+        <button class="tab-btn" onclick="switchSession(16)">Session 16</button>
+    </div>
+
+    <!-- SESSION 1 -->
+    <div id="session-1" class="session-content active">
+        <h2>Week 1 | Session 1: Thesis Mastery & Argumentation</h2>
+        <div class="rationale">
+            <h4>Module 1 Pedagogical Rationale</h4>
+            <p>A weak thesis merely summarizes plot or describes a literary feature ("what"), whereas a robust analytical thesis takes a defensible, arguable stance on <em>how</em> and <em>why</em> a literary choice creates meaning ("so what?").</p>
+        </div>
+        
+        <h3>Exercise 1.1: Descriptive vs. Argumentative Identification</h3>
+        <div class="exercise-box">
+            <p><strong>Task:</strong> Label each thesis statement below as either <strong>(D) Descriptive</strong> or <strong>(A) Argumentative</strong>.</p>
+            <p>1. In Letters I–IV, Robert Walton expresses his ambition to explore the North Pole through passionate language addressed to his sister[cite: 3, 4].</p>
+            <textarea placeholder="Type your answer here..."></textarea>
+            
+            <p>2. Walton’s unbridled Romantic ambition in his letters mirrors Victor Frankenstein's later obsession, revealing how the pursuit of glory isolates creators from human responsibility.</p>
+            <textarea placeholder="Type your answer here..."></textarea>
+
+            <button class="check-btn" onclick="toggleAnswer('ans-1-1')">View Answer & Explanation</button>
+            <div id="ans-1-1" class="answer-reveal">
+                <strong>Answers:</strong> 1. (D) Descriptive. 2. (A) Argumentative.<br>
+                <em>Explanation:</em> Statement 1 reports narrative events without an arguable claim. Statement 2 connects characters across the frame narrative and establishes a broader thematic claim about creator responsibility requiring textual proof.
+            </div>
+        </div>
+
+        <h3>Exercise 1.2: Revising Descriptive Theses</h3>
+        <div class="exercise-box">
+            <p><strong>Task:</strong> Rewrite the descriptive statement: <em>"Victor Frankenstein creates a monster in Chapter 5 and then runs away from it[cite: 3]."</em> into a strong argumentative claim answering: <em>How do Victor or the Creature reflect a creator's responsibility?[cite: 4]</em></p>
+            <textarea placeholder="Draft your revised thesis here..."></textarea>
+            <button class="check-btn" onclick="toggleAnswer('ans-1-2')">View Sample Answer</button>
+            <div id="ans-1-2" class="answer-reveal">
+                <strong>Sample Revision:</strong> By abandoning his creation in a fit of aesthetic revulsion, Victor Frankenstein shirks the foundational duty of a creator, illustrating Shelley's warning that unchecked scientific ambition breeds monstrous negligence.
+            </div>
+        </div>
+
+        <h3>Exercise 1.3: Spotting the "So What?" Connection</h3>
+        <div class="exercise-box">
+            <p><strong>Task:</strong> Evaluate whether Thesis B successfully addresses the "So What?" component: <em>"By framing Victor's tragic narrative through Walton's letters, Shelley warns that unbridled adolescent ambition blinds creators to their ultimate ethical duties toward others[cite: 4]."</em> Write (Yes)/(No) with a brief reason.</p>
+            <textarea placeholder="Type your evaluation here..."></textarea>
+            <button class="check-btn" onclick="toggleAnswer('ans-1-3')">View Answer</button>
+            <div id="ans-1-3" class="answer-reveal">
+                <strong>Answer: (Yes).</strong><br>
+                <em>Explanation:</em> It explicitly links structural framing (Walton's letters) to an essential question regarding adolescent ambition and ethical duty[cite: 4].
+            </div>
+        </div>
+    </div>
+
+    <!-- SESSION 2 -->
+    <div id="session-2" class="session-content">
+        <h2>Week 1 | Session 2: Refining & Rewriting Theses</h2>
+        <div class="rationale">
+            <h4>Application Rationale</h4>
+            <p>Translating theoretical knowledge into personal writing practice ensures your introductory claims move away from plot summary and immediately establish analytical control.</p>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 1:</strong> Review past essay drafts and identify a descriptive thesis statement.</p>
+            <textarea placeholder="Paste your old thesis here..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 2:</strong> Rewrite that old thesis into an arguable claim using Module 1 strategies.</p>
+            <textarea placeholder="Draft your revised thesis here..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 3:</strong> Test your new thesis against the Essential Question: <em>What responsibilities do we have towards our own creations?[cite: 4]</em> Write a 1-sentence explanation of how your thesis connects.</p>
+            <textarea placeholder="Explain your connection here..."></textarea>
+            <button class="check-btn" onclick="toggleAnswer('ans-s2')">View Guidance</button>
+            <div id="ans-s2" class="answer-reveal">
+                <strong>Guidance:</strong> Ensure your thesis does not merely state what a character does, but argues *why* Shelley structures the narrative to critique modern scientific ethics[cite: 4].
+            </div>
+        </div>
+    </div>
+
+    <!-- SESSION 3 -->
+    <div id="session-3" class="session-content">
+        <h2>Week 1 | Session 3: Frankenstein Reading & Thesis Drafting</h2>
+        <div class="rationale">
+            <h4>Contextual Grounding Rationale</h4>
+            <p>Analyzing text immediately after reading solidifies thematic comprehension and primes analytical writing.</p>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 1:</strong> Review Walton's Letters (Pages 1–14)[cite: 3]. Note Walton's primary obsession.</p>
+            <textarea placeholder="Type your notes here..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 2:</strong> Draft a practice thesis statement connecting Walton's ambition to adolescent rebellion ("Teen Spirit")[cite: 4].</p>
+            <textarea placeholder="Draft thesis here..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 3:</strong> Outline two pieces of textual evidence from Walton's letters that support your draft thesis[cite: 3, 4].</p>
+            <textarea placeholder="Outline evidence here..."></textarea>
+            <button class="check-btn" onclick="toggleAnswer('ans-s3')">View Sample Outline</button>
+            <div id="ans-s3" class="answer-reveal">
+                <strong>Sample Outline:</strong><br>
+                1. Walton's quote about sacrificing existence for enterprise.<br>
+                2. Walton's profound loneliness and desire for a friend who matches his romantic ideals.
+            </div>
+        </div>
+    </div>
+
+    <!-- SESSION 4 -->
+    <div id="session-4" class="session-content">
+        <h2>Week 1 | Session 4: Rubric Self-Assessment & Thesis Polish</h2>
+        <div class="rationale">
+            <h4>Metacognitive Self-Assessment Rationale</h4>
+            <p>Evaluating your own writing against objective criteria builds editorial independence and ensures readiness for graded assessments.</p>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 1:</strong> Paste your Session 3 draft thesis below.</p>
+            <textarea placeholder="Paste thesis here..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 2:</strong> Score your thesis on the rubric scale (1 to 4) for the <em>Thesis / Argument</em> category[cite: 1, 2].</p>
+            <textarea placeholder="Enter score and justification..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 3:</strong> Finalize a polished version of your thesis, ensuring zero descriptive plot summary.</p>
+            <textarea placeholder="Final polished thesis..."></textarea>
+            <button class="check-btn" onclick="toggleAnswer('ans-s4')">View Rubric Target</button>
+            <div id="ans-s4" class="answer-reveal">
+                <strong>Target (Level 4 - Advanced):</strong> Thesis is insightful, highly arguable, and seamlessly integrates essential questions without relying on plot summary[cite: 1, 2, 4].
+            </div>
+        </div>
+    </div>
+
+    <!-- SESSION 5 -->
+    <div id="session-5" class="session-content">
+        <h2>Week 2 | Session 5: Accurate Literary Craft & Device Identification</h2>
+        <div class="rationale">
+            <h4>Module 2 Pedagogical Rationale</h4>
+            <p>Misidentifying literary craft—such as confusing visual window lighting with auditory phenomena—destroys argumentative credibility because your evidence no longer supports your claim[cite: 1].</p>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 1:</strong> Match the term to its definition: (a) Visual Imagery, (b) Auditory Imagery, (c) Frame Narrative, (d) Foil.</p>
+            <textarea placeholder="Type your matching answers here..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 2:</strong> Correct the error in this excerpt: <em>"When Victor describes the creature's 'dull yellow eye' open in Chapter 5[cite: 3], this brilliant use of auditory imagery highlights the loud awakening of life[cite: 1]."</em></p>
+            <textarea placeholder="Type your correction here..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 3:</strong> Classify the primary sensory device in: <em>"The rain pattered dismally against the panes..."</em> (Chap 5)[cite: 3].</p>
+            <textarea placeholder="Classify sensory device..."></textarea>
+            <button class="check-btn" onclick="toggleAnswer('ans-s5')">View Answers</button>
+            <div id="ans-s5" class="answer-reveal">
+                <strong>Answers:</strong><br>
+                1. Foil (a), Auditory (b), Frame (c), Visual (d).<br>
+                2. Change *auditory imagery* to **visual imagery** (eyes and color pertain to sight, not sound)[cite: 1].<br>
+                3. **Auditory imagery** (*"pattered dismally"*).
+            </div>
+        </div>
+    </div>
+
+    <!-- SESSION 6 -->
+    <div id="session-6" class="session-content">
+        <h2>Week 2 | Session 6: Note Auditing & Craft Correction</h2>
+        <div class="rationale">
+            <h4>Application Rationale</h4>
+            <p>Auditing past reading notes trains your eye to eliminate factual mislabeling before drafting essays.</p>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 1:</strong> Review your reading notes from *Frankenstein* Chapters 1–6[cite: 3]. Identify one descriptive passage.</p>
+            <textarea placeholder="Describe passage here..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 2:</strong> Label the exact sensory category (Visual, Auditory, Tactile) used in that passage.</p>
+            <textarea placeholder="Type sensory category..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 3:</strong> Explain why mislabeling this specific device would weaken an analytical claim[cite: 1].</p>
+            <textarea placeholder="Type explanation..."></textarea>
+            <button class="check-btn" onclick="toggleAnswer('ans-s6')">View Rationale Guidance</button>
+            <div id="ans-s6" class="answer-reveal">
+                <strong>Guidance:</strong> Factual device errors undermine your entire interpretive argument because your evidence fails to match your analytical premise[cite: 1].
+            </div>
+        </div>
+    </div>
+
+    <!-- SESSION 7 -->
+    <div id="session-7" class="session-content">
+        <h2>Week 2 | Session 7: Craft-Accurate Sentence Writing</h2>
+        <div class="rationale">
+            <h4>Precision Rationale</h4>
+            <p>Writing targeted analytical sentences with verified device terms builds unshakable textual authority.</p>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 1:</strong> Select a quote from Chapter 3 of *Frankenstein*[cite: 3].</p>
+            <textarea placeholder="Type quote here..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 2:</strong> Write an analytical sentence incorporating this quote and an accurately labeled literary device[cite: 1, 2].</p>
+            <textarea placeholder="Write sentence here..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 3:</strong> Verify that your device label has zero sensory mix-ups (e.g., visual vs. auditory)[cite: 1].</p>
+            <textarea placeholder="Type verification check..."></textarea>
+            <button class="check-btn" onclick="toggleAnswer('ans-s7')">View Sample Sentence</button>
+            <div id="ans-s7" class="answer-reveal">
+                <strong>Sample Sentence:</strong> Describing his mentor's appearance, Victor utilizes harsh **visual imagery** to convey his immediate disappointment with traditional science.
+            </div>
+        </div>
+    </div>
+
+    <!-- SESSION 8 -->
+    <div id="session-8" class="session-content">
+        <h2>Week 2 | Session 8: Literary Device Flashcard Mastery</h2>
+        <div class="rationale">
+            <h4>Conceptual Retention Rationale</h4>
+            <p>Mastering precise definitions prevents mixing up structural elements like foils and frame narratives during timed writing.</p>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 1:</strong> Write a precise definition for a <em>literary foil</em> in the context of *Frankenstein* (e.g., Victor and Clerval)[cite: 3].</p>
+            <textarea placeholder="Define literary foil..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 2:</strong> Define a <em>frame narrative</em> and explain its function in Walton's letters[cite: 3, 4].</p>
+            <textarea placeholder="Define frame narrative..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 3:</strong> Differentiate between visual and auditory imagery in one sentence[cite: 1].</p>
+            <textarea placeholder="Differentiate imagery..."></textarea>
+            <button class="check-btn" onclick="toggleAnswer('ans-s8')">View Key Definitions</button>
+            <div id="ans-s8" class="answer-reveal">
+                <strong>Key Definitions:</strong><br>
+                • Foil: A contrasting character highlighting protagonist traits.<br>
+                • Frame Narrative: An outer story framing inner testimonies (Walton framing Victor)[cite: 3, 4].<br>
+                • Visual vs. Auditory: Visual appeals to sight/light; auditory appeals to sound[cite: 1].
+            </div>
+        </div>
+    </div>
+
+    <!-- SESSION 9 -->
+    <div id="session-9" class="session-content">
+        <h2>Week 3 | Session 9: Deepening Analysis & Avoiding Compression</h2>
+        <div class="rationale">
+            <h4>Module 3 Pedagogical Rationale</h4>
+            <p>Compression occurs when students cram multiple analytical leaps into a single sentence. Analysis requires room to breathe: introduce evidence, isolate a phrase, explain denotation, and expand to thematic significance[cite: 1].</p>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 1:</strong> Expand the compressed sentence: <em>"Victor’s workshop of filthy creation shows his obsession with glory, and beauty is replaced by horror, which proves that ambition destroys domestic peace."</em> into 3 distinct sentences.</p>
+            <textarea placeholder="Draft expansion here..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 2:</strong> Integrate this quote into a complete analytical sentence: <em>"I had worked hard for nearly two years, for the sole purpose of infusing life into an inanimate body."</em> (Chap 4)[cite: 3].</p>
+            <textarea placeholder="Draft integrated sentence here..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 3:</strong> Add one sentence of deeper analytical significance to this draft: <em>"Victor confesses his obsession, stating, 'A new species would bless me as its creator and source.' Shelley uses this quote to show Victor wants to be worshipped."</em></p>
+            <textarea placeholder="Add deeper analysis here..."></textarea>
+            <button class="check-btn" onclick="toggleAnswer('ans-s9')">View Explanations</button>
+            <div id="ans-s9" class="answer-reveal">
+                <strong>Explanations:</strong><br>
+                • Expansion separates quote introduction, ironic contrast inversion, and thematic consequence.<br>
+                • Integration uses a framing clause to embed the quote smoothly.<br>
+                • Deeper analysis moves from restatement ("worshipped") to ethical stewardship versus personal glory.
+            </div>
+        </div>
+    </div>
+
+    <!-- SESSION 10 -->
+    <div id="session-10" class="session-content">
+        <h2>Week 3 | Session 10: Structural Organization & Paragraphing</h2>
+        <div class="rationale">
+            <h4>Module 4 Pedagogical Rationale</h4>
+            <p>Essays written as a single undifferentiated block of text deny readers cognitive resting points. Academic standards require distinct architectural modules: introduction, body paragraphs, and conclusion[cite: 1].</p>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 1:</strong> Outline a 4-paragraph essay analyzing Victor's creation scene in Chapter 5[cite: 3]: Fill in Paragraphs 1 through 4[cite: 1].</p>
+            <textarea placeholder="Outline 4 paragraphs here..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 2:</strong> Identify where the paragraph break must be inserted in: <em>"In Walton’s letters, Shelley establishes danger through obsession[cite: 3, 4]. Walton writes, 'I would sacrifice my fortune...' This intense declaration mirrors Victor’s downfall."</em></p>
+            <textarea placeholder="Indicate paragraph break..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 3:</strong> Write a 2-sentence concluding thought for a paragraph analyzing Victor's abandonment, connecting it to the Essential Question on creator responsibility[cite: 4].</p>
+            <textarea placeholder="Write concluding thought here..."></textarea>
+            <button class="check-btn" onclick="toggleAnswer('ans-s10')">View Answers</button>
+            <div id="ans-s10" class="answer-reveal">
+                <strong>Answers:</strong><br>
+                • Outline: P1 (Intro/Thesis), P2 (Quote 1 analysis), P3 (Quote 2 analysis), P4 (Synthesis/Essential Question)[cite: 1, 4].<br>
+                • Break Location: Right before *"This intense declaration mirrors..."* to separate evidence delivery from analysis.<br>
+                • Concluding Thought: Steps back from the passage to address moral obligation and monstrous consequences[cite: 4].
+            </div>
+        </div>
+    </div>
+
+    <!-- SESSION 11 -->
+    <div id="session-11" class="session-content">
+        <h2>Week 3 | Session 11: Deconstructing Sprawling Sentences</h2>
+        <div class="rationale">
+            <h4>Module 6 Pedagogical Rationale</h4>
+            <p>Long, rambling sentences pack excessive clauses into one breath, obscuring analytical logic. Conciseness is achieved by distilling thoughts into sharp, punchy syntax.</p>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 1:</strong> Deconstruct this sprawling sentence into three shorter analytical statements: <em>"When Victor first sees the creature moving, he experiences absolute terror because his previous dreams of glorious achievement vanish instantly, which causes him to rush out and abandon the living being."</em></p>
+            <textarea placeholder="Deconstruct sentence here..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 2:</strong> Rewrite this wordy sentence for conciseness: <em>"In a very similar kind of way, Robert Walton is a person who exhibits a lot of the exact same character traits as Victor Frankenstein because they both want to achieve greatness so badly."</em></p>
+            <textarea placeholder="Rewrite for conciseness..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 3:</strong> Streamline this clause clutter: <em>"The creature, who is someone that was brought into the world without any form of guidance by his creator, ultimately turns to feelings of deep vengeance."</em></p>
+            <textarea placeholder="Streamline clause clutter..."></textarea>
+            <button class="check-btn" onclick="toggleAnswer('ans-s11')">View Solutions</button>
+            <div id="ans-s11" class="answer-reveal">
+                <strong>Solutions:</strong><br>
+                1. Three sentences separating initial terror, vanished dreams, and panicked abandonment.<br>
+                2. Concise: "Robert Walton mirrors Victor Frankenstein; both men are driven by an obsessive pursuit of greatness."<br>
+                3. Streamlined: "Denied nurturing guidance by his creator, the abandoned creature ultimately turns to vengeance."
+            </div>
+        </div>
+    </div>
+
+    <!-- SESSION 12 -->
+    <div id="session-12" class="session-content">
+        <h2>Week 3 | Session 12: Trimming Wordiness & Splitting Ideas</h2>
+        <div class="rationale">
+            <h4>Style Rationale</h4>
+            <p>Eliminating adverbial filler and splitting multi-idea sentences amplifies argumentative force and preserves academic tone.</p>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 1:</strong> Trim redundant modifiers: <em>"Mary Shelley quite literally demonstrates in a very clear way that if a creator completely abandons their creation, it will always predictably lead to disaster."</em></p>
+            <textarea placeholder="Trim redundant modifiers..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 2:</strong> Split this multi-idea sentence into two punchy statements (atmosphere vs. psychology): <em>"The flickering candlelight in Victor's laboratory creates a chilling gothic atmosphere that mirrors his decaying mental state as he realizes his mistake."</em></p>
+            <textarea placeholder="Split into two sentences..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 3:</strong> Practice taking a rambling paragraph from past writing and breaking it into concise, punchy sentences.</p>
+            <textarea placeholder="Rewrite rambling paragraph..."></textarea>
+            <button class="check-btn" onclick="toggleAnswer('ans-s12')">View Examples</button>
+            <div id="ans-s12" class="answer-reveal">
+                <strong>Examples:</strong><br>
+                • Trimmed: "Mary Shelley demonstrates that abandoning one's creation inevitably leads to disaster."<br>
+                • Split: "The flickering candlelight casts deep gothic shadows in Victor's laboratory. This eerie illumination mirrors his decaying mental state."
+            </div>
+        </div>
+    </div>
+
+    <!-- SESSION 13 -->
+    <div id="session-13" class="session-content">
+        <h2>Week 4 | Session 13: Sentence Mechanics & Fixing Run-ons</h2>
+        <div class="rationale">
+            <h4>Module 5 Pedagogical Rationale</h4>
+            <p>Grammatical precision protects academic voice. Minor errors like missing words (*"she also seems brings"*) or clashing conjunctions (*"Although..., but..."*) erode argumentative authority[cite: 1].</p>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 1:</strong> Fix the grammar: <em>"Although the creature attempts to speak to the cottagers, but he is immediately driven away by violence."</em></p>
+            <textarea placeholder="Fix grammar here..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 2:</strong> Fix missing words: <em>"Elizabeth Lavenza always seems bring a sense of harmony to the chaotic Frankenstein household[cite: 3]."</em></p>
+            <textarea placeholder="Fix missing words..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 3:</strong> Correct the comma splice: <em>"Victor believes his scientific pursuits will benefit mankind, however, his secretive methods isolate him."</em></p>
+            <textarea placeholder="Correct comma splice..."></textarea>
+            <button class="check-btn" onclick="toggleAnswer('ans-s13')">View Corrections</button>
+            <div id="ans-s13" class="answer-reveal">
+                <strong>Corrections:</strong><br>
+                1. Remove "but" (avoid double conjunctions).<br>
+                2. Add "to": *"Elizabeth Lavenza always seems **to** bring..."*[cite: 1, 3].<br>
+                3. Use semicolon: *"mankind; however, his secretive methods..."*
+            </div>
+        </div>
+    </div>
+
+    <!-- SESSION 14 -->
+    <div id="session-14" class="session-content">
+        <h2>Week 4 | Session 14: The Backward Read Proofreading Method</h2>
+        <div class="rationale">
+            <h4>Proofreading Rationale</h4>
+            <p>Reading text backward sentence-by-sentence isolates individual clauses so missing words, typos, and agreement errors instantly stand out[cite: 1].</p>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 1:</strong> Identify the missing word in: <em>"Shelley demonstrates that ambition corrupts the human heart when fails to accept moral duty[cite: 1]."</em></p>
+            <textarea placeholder="Identify missing word..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 2:</strong> Correct article/preposition errors in: <em>"During course of isolation at university, Victor loses touch with natural world."</em></p>
+            <textarea placeholder="Correct articles/prepositions..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 3:</strong> Apply the backward read method to a past paragraph of your own writing and note any caught typos[cite: 1].</p>
+            <textarea placeholder="Record backward read findings..."></textarea>
+            <button class="check-btn" onclick="toggleAnswer('ans-s14')">View Solutions</button>
+            <div id="ans-s14" class="answer-reveal">
+                <strong>Solutions:</strong><br>
+                1. Insert **he** before fails (*"...when **he** fails..."*)[cite: 1].<br>
+                2. Insert articles: *"During **the** course of **his** isolation at **the** university, Victor loses touch with **the** natural world."*
+            </div>
+        </div>
+    </div>
+
+    <!-- SESSION 15 -->
+    <div id="session-15" class="session-content">
+        <h2>Week 4 | Session 15: Capstone Mini-Essay Synthesis</h2>
+        <div class="rationale">
+            <h4>Capstone Rationale</h4>
+            <p>Synthesizing all learned skills into a unified writing task bridges the gap between isolated mechanical exercises and full essay performance[cite: 1, 2, 4].</p>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 1:</strong> Write a fully arguable thesis answering: <em>How does Shelley use literary craft to depict the consequences of irresponsible creation?[cite: 1, 2, 4]</em></p>
+            <textarea placeholder="Write capstone thesis..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 2:</strong> Draft a 5-sentence body paragraph incorporating an accurately labeled literary device and a properly cited quote from Chapter 5 of *Frankenstein*[cite: 1, 2, 3].</p>
+            <textarea placeholder="Draft body paragraph..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 3:</strong> Combine your thesis and body paragraph into a polished, concise two-paragraph mini-essay[cite: 1, 2, 4].</p>
+            <textarea placeholder="Draft full mini-essay..."></textarea>
+            <button class="check-btn" onclick="toggleAnswer('ans-s15')">View Model Response</button>
+            <div id="ans-s15" class="answer-reveal">
+                <strong>Model Body Sentence:</strong> Describing the horrifying awakening, Victor recounts, *"by the glimmer of the half-extinguished light, I saw the dull yellow eye of the creature open"*[cite: 3]. Utilizing accurate **visual imagery**, Victor externalizes his immediate disgust, highlighting how aesthetic revulsion overrides paternal duty[cite: 1].
+            </div>
+        </div>
+    </div>
+
+    <!-- SESSION 16 -->
+    <div id="session-16" class="session-content">
+        <h2>Week 4 | Session 16: Self-Assessment Rubric & Final Review</h2>
+        <div class="rationale">
+            <h4>Final Evaluation Rationale</h4>
+            <p>Scoring your capstone mini-essay against teacher feedback criteria completes your cycle of continuous writing improvement[cite: 1, 2].</p>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 1:</strong> Review your Session 15 mini-essay against the 5 rubric categories (Thesis, Craft, Evidence, Organization, Voice/Mechanics)[cite: 1, 2].</p>
+            <textarea placeholder="Record rubric ratings (1-4)..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 2:</strong> Identify your strongest writing category and explain why[cite: 1, 2].</p>
+            <textarea placeholder="Explain strongest category..."></textarea>
+        </div>
+        <div class="exercise-box">
+            <p><strong>Task 3:</strong> Set one final editorial goal for your next formal in-class essay[cite: 1, 2].</p>
+            <textarea placeholder="Set final editorial goal..."></textarea>
+            <button class="check-btn" onclick="toggleAnswer('ans-s16')">View Rubric Target Reminder</button>
+            <div id="ans-s16" class="answer-reveal">
+                <strong>Reminder:</strong> Aim for Level 3 (Proficient) or Level 4 (Advanced) across all categories by ensuring arguable theses, precise craft labeling, uncompressed analysis, clean paragraph breaks, and concise syntax[cite: 1, 2].
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    Frankenstein Writing Mastery Workbook • Designed for 11th Grade English Success[cite: 1, 2, 3]
+</footer>
+
+<script>
+    function switchSession(sessionNum) {
+        // Hide all session contents
+        const sessions = document.querySelectorAll('.session-content');
+        sessions.forEach(s => s.classList.remove('active'));
+
+        // Remove active class from all buttons
+        const buttons = document.querySelectorAll('.tab-btn');
+        buttons.forEach(b => b.classList.remove('active'));
+
+        // Activate target session and button
+        document.getElementById(`session-${sessionNum}`).classList.add('active');
+        buttons[sessionNum - 1].classList.add('active');
+
+        // Scroll to top of container
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleAnswer(answerId) {
+        const answerBox = document.getElementById(answerId);
+        if (answerBox.style.display === 'block') {
+            answerBox.style.display = 'none';
+        } else {
+            answerBox.style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
